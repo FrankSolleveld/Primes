@@ -11,7 +11,18 @@ import SwiftUI
 struct PrimesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(store:
+                Store(
+                    initialValue: AppState(),
+                    reducer: with(
+                        appReducer,
+                        compose(
+                            logging,
+                            activityFeed
+                        )
+                    )
+                )
+            )
         }
     }
 }
