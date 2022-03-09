@@ -2,10 +2,10 @@ import SwiftUI
 import ComposableArchitecture
 
 struct FavouritePrimesView: View {
-    @ObservedObject var store: Store<AppState, AppAction>
+    @ObservedObject var store: Store<[Int], AppAction>
     var body: some View {
         List {
-            ForEach(store.value.favouritePrimes, id: \.self) { prime in 
+            ForEach(store.value, id: \.self) { prime in
                 Text("\(prime)")
             }
             .onDelete { indexSet in 

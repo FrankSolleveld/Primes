@@ -48,9 +48,9 @@ struct AppState {
 extension AppState {
     var primeModal: PrimeModalState {
         get {
-            PrimeModalState.init(
-                count: self.count,
-                favouritePrimes: self.favouritePrimes
+            PrimeModalState(
+              count: self.count,
+              favouritePrimes: self.favouritePrimes
             )
         }
         set {

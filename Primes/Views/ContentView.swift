@@ -8,11 +8,14 @@ struct ContentView: View {
             List {
                 NavigationLink(
                     "Counter Demo",
-                    destination: CounterView(store: store)
+                    destination: CounterView(
+                        store: store
+                            .view {( $0.count, $0.favouritePrimes )}
+                    )
                 )
                 NavigationLink(
                     "Favorite primes",
-                    destination: FavouritePrimesView(store: store)
+                    destination: FavouritePrimesView(store: store.view { $0.favouritePrimes })
                 )
             }
             .navigationTitle("Primes")

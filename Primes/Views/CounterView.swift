@@ -1,8 +1,10 @@
 import SwiftUI
 import ComposableArchitecture
 
+typealias CounterViewState = (count: Int, favouritePrimes: [Int])
+
 struct CounterView: View {
-    @ObservedObject var store: Store<AppState, AppAction>
+    @ObservedObject var store: Store<CounterViewState, AppAction>
     @State var isPrimeModalShown = false
     @State var alertNthPrime: PrimeAlert?
     @State var isNthPrimeButtonDisabled = false
@@ -29,7 +31,10 @@ struct CounterView: View {
         .font(.title)
         .navigationBarTitle("Counter Demo")
         .sheet(isPresented: $isPrimeModalShown) {
-            IsPrimeModalView(store: store)
+            IsPrimeModalView(
+                store: store
+                    .view {( $0.count, $0.favouritePrimes )}
+            )
         }
         .alert(item: $alertNthPrime) { alert in 
             Alert(
