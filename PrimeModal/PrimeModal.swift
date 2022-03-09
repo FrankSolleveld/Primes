@@ -10,11 +10,6 @@ import SwiftUI
 public struct PrimeModalState {
     public var count: Int
     public var favouritePrimes: [Int]
-
-    public init(count: Int, favouritePrimes: [Int]) {
-        self.count = count
-        self.favouritePrimes = favouritePrimes
-    }
 }
 
 public enum PrimeModalAction {
