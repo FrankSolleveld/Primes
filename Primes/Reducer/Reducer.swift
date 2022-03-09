@@ -1,15 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 import FavouritePrimes
-
-func counterReducer(state: inout Int, action: CounterAction) {
-    switch action {
-        case .decrTapped:
-        state -= 1
-        case .incrTapped:
-        state += 1
-    }
-}
+import Counter
 
 func primeModalReducer(state: inout AppState, action: PrimeModalAction) -> Void {
     switch action {

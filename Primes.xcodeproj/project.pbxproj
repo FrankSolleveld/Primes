@@ -19,7 +19,6 @@
 		95EA973727D8BF5F0032B0D8 /* PrimeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA972827D8BF5E0032B0D8 /* PrimeAlert.swift */; };
 		95EA973827D8BF5F0032B0D8 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA972A27D8BF5E0032B0D8 /* Reducer.swift */; };
 		95EA973927D8BF5F0032B0D8 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA972C27D8BF5E0032B0D8 /* AppAction.swift */; };
-		95EA973B27D8BF5F0032B0D8 /* CounterAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA972E27D8BF5F0032B0D8 /* CounterAction.swift */; };
 		95EA973C27D8BF5F0032B0D8 /* PrimeModalAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA972F27D8BF5F0032B0D8 /* PrimeModalAction.swift */; };
 		95EA974A27D8E16C0032B0D8 /* Counter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95EA974227D8E16C0032B0D8 /* Counter.framework */; };
 		95EA975127D8E16C0032B0D8 /* CounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA975027D8E16C0032B0D8 /* CounterTests.swift */; };
@@ -43,6 +42,7 @@
 		95EA97B727D8E1A30032B0D8 /* ComposableArchitecture.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95EA97A327D8E1A30032B0D8 /* ComposableArchitecture.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		95EA97BF27D8E1B80032B0D8 /* ComposableArchitecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA97BE27D8E1B80032B0D8 /* ComposableArchitecture.swift */; };
 		95EA97C127D8E34F0032B0D8 /* FavouritePrimes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA97C027D8E34F0032B0D8 /* FavouritePrimes.swift */; };
+		95EA97C327D8E49C0032B0D8 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA97C227D8E49C0032B0D8 /* Counter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,7 +163,6 @@
 		95EA972827D8BF5E0032B0D8 /* PrimeAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimeAlert.swift; sourceTree = "<group>"; };
 		95EA972A27D8BF5E0032B0D8 /* Reducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
 		95EA972C27D8BF5E0032B0D8 /* AppAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
-		95EA972E27D8BF5F0032B0D8 /* CounterAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterAction.swift; sourceTree = "<group>"; };
 		95EA972F27D8BF5F0032B0D8 /* PrimeModalAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimeModalAction.swift; sourceTree = "<group>"; };
 		95EA974227D8E16C0032B0D8 /* Counter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Counter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95EA974427D8E16C0032B0D8 /* Counter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Counter.h; sourceTree = "<group>"; };
@@ -183,6 +182,7 @@
 		95EA97B127D8E1A30032B0D8 /* ComposableArchitectureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposableArchitectureTests.swift; sourceTree = "<group>"; };
 		95EA97BE27D8E1B80032B0D8 /* ComposableArchitecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposableArchitecture.swift; sourceTree = "<group>"; };
 		95EA97C027D8E34F0032B0D8 /* FavouritePrimes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePrimes.swift; sourceTree = "<group>"; };
+		95EA97C227D8E49C0032B0D8 /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,7 +355,6 @@
 			isa = PBXGroup;
 			children = (
 				95EA972C27D8BF5E0032B0D8 /* AppAction.swift */,
-				95EA972E27D8BF5F0032B0D8 /* CounterAction.swift */,
 				95EA972F27D8BF5F0032B0D8 /* PrimeModalAction.swift */,
 			);
 			path = Actions;
@@ -365,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				95EA974427D8E16C0032B0D8 /* Counter.h */,
+				95EA97C227D8E49C0032B0D8 /* Counter.swift */,
 			);
 			path = Counter;
 			sourceTree = "<group>";
@@ -650,6 +650,7 @@
 					};
 					95EA974127D8E16C0032B0D8 = {
 						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
 					};
 					95EA974827D8E16C0032B0D8 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -783,7 +784,6 @@
 				95EA973227D8BF5F0032B0D8 /* IsPrimeModalView.swift in Sources */,
 				95EA973927D8BF5F0032B0D8 /* AppAction.swift in Sources */,
 				95EA973127D8BF5F0032B0D8 /* FavouritePrimesView.swift in Sources */,
-				95EA973B27D8BF5F0032B0D8 /* CounterAction.swift in Sources */,
 				95EA973427D8BF5F0032B0D8 /* AppState.swift in Sources */,
 				95EA973827D8BF5F0032B0D8 /* Reducer.swift in Sources */,
 				95EA973627D8BF5F0032B0D8 /* Helpers.swift in Sources */,
@@ -798,6 +798,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95EA97C327D8E49C0032B0D8 /* Counter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1101,6 +1102,7 @@
 		95EA975827D8E16C0032B0D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1121,6 +1123,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1131,6 +1134,7 @@
 		95EA975927D8E16C0032B0D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;

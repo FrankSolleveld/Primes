@@ -1,5 +1,6 @@
 import SwiftUI
 import FavouritePrimes
+import Counter
 
 enum AppAction {
     case counter(CounterAction)
