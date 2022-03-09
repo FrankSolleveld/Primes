@@ -2,16 +2,7 @@ import SwiftUI
 import ComposableArchitecture
 import FavouritePrimes
 import Counter
-
-func primeModalReducer(state: inout AppState, action: PrimeModalAction) -> Void {
-    switch action {
-    case .removeFavouritePrimeTapped:
-        state.favouritePrimes.removeAll(where: { $0 == state.count })
-        
-    case .saveFavouritePrimeTapped:
-        state.favouritePrimes.append(state.count)
-    }
-}
+import PrimeModal
 
 func activityFeed(
     _ reducer: @escaping (inout AppState, AppAction) -> Void
@@ -35,7 +26,7 @@ func activityFeed(
 
 let _appReducer: (inout AppState, AppAction) -> Void = combine(
     pullback(counterReducer, value: \.count, action: \.counter),
-    pullback(primeModalReducer, value: \.self, action: \.primeModal),
+    pullback(primeModalReducer, value: \.primeModal, action: \.primeModal),
     pullback(favouritePrimesReducer, value: \.favouritePrimes, action: \.favouritePrimes)
 )
 let appReducer = pullback(_appReducer, value: \.self, action: \.self)

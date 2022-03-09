@@ -1,4 +1,5 @@
 import SwiftUI
+import PrimeModal
 
 struct AppState {
     var count = 0
@@ -41,5 +42,20 @@ struct AppState {
         let id: Int
         let name: String
         let bio: String
+    }
+}
+
+extension AppState {
+    var primeModal: PrimeModalState {
+        get {
+            PrimeModalState.init(
+                count: self.count,
+                favouritePrimes: self.favouritePrimes
+            )
+        }
+        set {
+            self.count = newValue.count
+            self.favouritePrimes = newValue.favouritePrimes
+        }
     }
 }
