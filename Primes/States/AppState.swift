@@ -10,11 +10,11 @@ struct AppState {
     struct Activity {
         let timestamp: Date
         let type: ActivityType
-        
+
         enum ActivityType {
             case addedFavouritePrime(Int)
             case removedFavouritePrime(Int)
-            
+
             var addedFavouritePrime: Int? {
                 get {
                     guard case let .addedFavouritePrime(value) = self else { return nil }
@@ -37,7 +37,7 @@ struct AppState {
             }
         }
     }
-    
+
     struct User {
         let id: Int
         let name: String
