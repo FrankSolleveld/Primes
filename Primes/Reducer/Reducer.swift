@@ -1,5 +1,6 @@
 import SwiftUI
 import ComposableArchitecture
+import FavouritePrimes
 
 func counterReducer(state: inout Int, action: CounterAction) {
     switch action {
@@ -17,15 +18,6 @@ func primeModalReducer(state: inout AppState, action: PrimeModalAction) -> Void 
         
     case .saveFavouritePrimeTapped:
         state.favouritePrimes.append(state.count)
-    }
-}
-
-func favouritePrimesReducer(state: inout [Int], action: FavouritePrimesAction) -> Void {
-    switch action {
-    case let .deleteFavouritePrimes(indexSet):
-        for index in indexSet {
-            state.remove(at: index)
-        }
     }
 }
 
