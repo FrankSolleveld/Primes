@@ -1,5 +1,6 @@
 import SwiftUI
 import PrimeModal
+import Counter
 
 struct AppState {
     var count = 0
@@ -46,9 +47,9 @@ struct AppState {
 }
 
 extension AppState {
-    var primeModal: PrimeModalState {
+    var counterView: CounterViewState {
         get {
-            PrimeModalState(
+            CounterViewState(
               count: self.count,
               favouritePrimes: self.favouritePrimes
             )

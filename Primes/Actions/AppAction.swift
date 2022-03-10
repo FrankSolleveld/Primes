@@ -4,32 +4,20 @@ import Counter
 import PrimeModal
 
 enum AppAction {
-    case counter(CounterAction)
-    case primeModal(PrimeModalAction)
+    case counterView(CounterViewAction)
     case favouritePrimes(FavouritePrimesAction)
-    
-    var counter: CounterAction? {
+
+    var counterView: CounterViewAction? {
         get {
-            guard case let .counter(value) = self else { return nil }
+            guard case let .counterView(value) = self else { return nil }
             return value
         }
         set {
-            guard case .counter = self, let newValue = newValue else { return }
-            self = .counter(newValue)
+            guard case .counterView = self, let newValue = newValue else { return }
+            self = .counterView(newValue)
         }
     }
-    
-    var primeModal: PrimeModalAction? {
-        get {
-            guard case let .primeModal(value) = self else { return nil }
-            return value
-        }
-        set {
-            guard case .primeModal = self, let newValue = newValue else { return }
-            self = .primeModal(newValue)
-        }
-    }
-    
+
     var favouritePrimes: FavouritePrimesAction? {
         get {
             guard case let .favouritePrimes(value) = self else { return nil }
