@@ -1,6 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 import FavouritePrimes
+import Counter
 
 struct ContentView: View {
     @ObservedObject var store: Store<AppState, AppAction>
@@ -13,7 +14,14 @@ struct ContentView: View {
                         store: store
                             .view(
                                 value: {( $0.count, $0.favouritePrimes )},
-                                action: { $0 }
+                                action: {
+                                    switch $0 {
+                                    case let .counter(action):
+                                        return AppAction.counter(action)
+                                    case let .primeModal(action):
+                                        return AppAction.primeModal(action)
+                                    }
+                                }
                             )
                     )
                 )

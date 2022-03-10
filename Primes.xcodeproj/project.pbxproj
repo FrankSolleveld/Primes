@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9589809527DA1F8A005DA042 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA972727D8BF5E0032B0D8 /* Helpers.swift */; };
+		9589809727DA1F97005DA042 /* WolframAlpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589809627DA1F97005DA042 /* WolframAlpha.swift */; };
 		95EA971127D8BF3A0032B0D8 /* PrimesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA971027D8BF3A0032B0D8 /* PrimesApp.swift */; };
 		95EA971527D8BF3A0032B0D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95EA971427D8BF3A0032B0D8 /* Assets.xcassets */; };
 		95EA971827D8BF3A0032B0D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95EA971727D8BF3A0032B0D8 /* Preview Assets.xcassets */; };
-		95EA973027D8BF5F0032B0D8 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA971F27D8BF5E0032B0D8 /* CounterView.swift */; };
 		95EA973327D8BF5F0032B0D8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA972227D8BF5E0032B0D8 /* ContentView.swift */; };
 		95EA973427D8BF5F0032B0D8 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA972427D8BF5E0032B0D8 /* AppState.swift */; };
-		95EA973627D8BF5F0032B0D8 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA972727D8BF5E0032B0D8 /* Helpers.swift */; };
 		95EA973727D8BF5F0032B0D8 /* PrimeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA972827D8BF5E0032B0D8 /* PrimeAlert.swift */; };
 		95EA973827D8BF5F0032B0D8 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA972A27D8BF5E0032B0D8 /* Reducer.swift */; };
 		95EA973927D8BF5F0032B0D8 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA972C27D8BF5E0032B0D8 /* AppAction.swift */; };
@@ -44,6 +44,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9589808C27DA1EEE005DA042 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95EA970527D8BF3A0032B0D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95EA976227D8E17B0032B0D8;
+			remoteInfo = PrimeModal;
+		};
+		9589808E27DA1EFF005DA042 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95EA970527D8BF3A0032B0D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95EA97A227D8E1A30032B0D8;
+			remoteInfo = ComposableArchitecture;
+		};
+		9589809027DA1F03005DA042 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95EA970527D8BF3A0032B0D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95EA97A227D8E1A30032B0D8;
+			remoteInfo = ComposableArchitecture;
+		};
+		9589809227DA1F08005DA042 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95EA970527D8BF3A0032B0D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95EA97A227D8E1A30032B0D8;
+			remoteInfo = ComposableArchitecture;
+		};
 		95EA974B27D8E16C0032B0D8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 95EA970527D8BF3A0032B0D8 /* Project object */;
@@ -148,11 +176,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9589809627DA1F97005DA042 /* WolframAlpha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolframAlpha.swift; sourceTree = "<group>"; };
 		95EA970D27D8BF3A0032B0D8 /* Primes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Primes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95EA971027D8BF3A0032B0D8 /* PrimesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimesApp.swift; sourceTree = "<group>"; };
 		95EA971427D8BF3A0032B0D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95EA971727D8BF3A0032B0D8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		95EA971F27D8BF5E0032B0D8 /* CounterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		95EA972227D8BF5E0032B0D8 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		95EA972427D8BF5E0032B0D8 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		95EA972727D8BF5E0032B0D8 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -314,7 +342,6 @@
 		95EA971E27D8BF5E0032B0D8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				95EA971F27D8BF5E0032B0D8 /* CounterView.swift */,
 				95EA972227D8BF5E0032B0D8 /* ContentView.swift */,
 			);
 			path = Views;
@@ -358,6 +385,7 @@
 			children = (
 				95EA974427D8E16C0032B0D8 /* Counter.h */,
 				95EA97C227D8E49C0032B0D8 /* Counter.swift */,
+				9589809627DA1F97005DA042 /* WolframAlpha.swift */,
 			);
 			path = Counter;
 			sourceTree = "<group>";
@@ -493,6 +521,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				9589808F27DA1EFF005DA042 /* PBXTargetDependency */,
+				9589808D27DA1EEE005DA042 /* PBXTargetDependency */,
 			);
 			name = Counter;
 			productName = Counter;
@@ -530,6 +560,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9589809127DA1F03005DA042 /* PBXTargetDependency */,
 			);
 			name = PrimeModal;
 			productName = PrimeModal;
@@ -567,6 +598,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9589809327DA1F08005DA042 /* PBXTargetDependency */,
 			);
 			name = FavouritePrimes;
 			productName = FavouritePrimes;
@@ -776,13 +808,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				95EA973927D8BF5F0032B0D8 /* AppAction.swift in Sources */,
+				9589809527DA1F8A005DA042 /* Helpers.swift in Sources */,
 				95EA973427D8BF5F0032B0D8 /* AppState.swift in Sources */,
 				95EA973827D8BF5F0032B0D8 /* Reducer.swift in Sources */,
-				95EA973627D8BF5F0032B0D8 /* Helpers.swift in Sources */,
 				95EA973327D8BF5F0032B0D8 /* ContentView.swift in Sources */,
 				95EA973727D8BF5F0032B0D8 /* PrimeAlert.swift in Sources */,
 				95EA971127D8BF3A0032B0D8 /* PrimesApp.swift in Sources */,
-				95EA973027D8BF5F0032B0D8 /* CounterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -791,6 +822,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95EA97C327D8E49C0032B0D8 /* Counter.swift in Sources */,
+				9589809727DA1F97005DA042 /* WolframAlpha.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -853,6 +885,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		9589808D27DA1EEE005DA042 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 95EA976227D8E17B0032B0D8 /* PrimeModal */;
+			targetProxy = 9589808C27DA1EEE005DA042 /* PBXContainerItemProxy */;
+		};
+		9589808F27DA1EFF005DA042 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 95EA97A227D8E1A30032B0D8 /* ComposableArchitecture */;
+			targetProxy = 9589808E27DA1EFF005DA042 /* PBXContainerItemProxy */;
+		};
+		9589809127DA1F03005DA042 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 95EA97A227D8E1A30032B0D8 /* ComposableArchitecture */;
+			targetProxy = 9589809027DA1F03005DA042 /* PBXContainerItemProxy */;
+		};
+		9589809327DA1F08005DA042 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 95EA97A227D8E1A30032B0D8 /* ComposableArchitecture */;
+			targetProxy = 9589809227DA1F08005DA042 /* PBXContainerItemProxy */;
+		};
 		95EA974C27D8E16C0032B0D8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 95EA974127D8E16C0032B0D8 /* Counter */;
