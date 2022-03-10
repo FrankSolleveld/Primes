@@ -1,5 +1,6 @@
 import SwiftUI
 import ComposableArchitecture
+import PrimeModal
 
 typealias CounterViewState = (count: Int, favouritePrimes: [Int])
 
@@ -33,7 +34,10 @@ struct CounterView: View {
         .sheet(isPresented: $isPrimeModalShown) {
             IsPrimeModalView(
                 store: store
-                    .view {( $0.count, $0.favouritePrimes )}
+                    .view(
+                        value: {( $0.count, $0.favouritePrimes )},
+                        action: { .primeModal($0) }
+                    )
             )
         }
         .alert(item: $alertNthPrime) { alert in 
