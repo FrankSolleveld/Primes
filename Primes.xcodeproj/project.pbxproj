@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9589809527DA1F8A005DA042 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA972727D8BF5E0032B0D8 /* Helpers.swift */; };
-		9589809727DA1F97005DA042 /* WolframAlpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589809627DA1F97005DA042 /* WolframAlpha.swift */; };
+		9589809927DA2099005DA042 /* WolframAlpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589809827DA2099005DA042 /* WolframAlpha.swift */; };
 		95EA971127D8BF3A0032B0D8 /* PrimesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA971027D8BF3A0032B0D8 /* PrimesApp.swift */; };
 		95EA971527D8BF3A0032B0D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95EA971427D8BF3A0032B0D8 /* Assets.xcassets */; };
 		95EA971827D8BF3A0032B0D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95EA971727D8BF3A0032B0D8 /* Preview Assets.xcassets */; };
@@ -176,7 +176,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9589809627DA1F97005DA042 /* WolframAlpha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolframAlpha.swift; sourceTree = "<group>"; };
+		9589809827DA2099005DA042 /* WolframAlpha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolframAlpha.swift; sourceTree = "<group>"; };
 		95EA970D27D8BF3A0032B0D8 /* Primes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Primes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95EA971027D8BF3A0032B0D8 /* PrimesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimesApp.swift; sourceTree = "<group>"; };
 		95EA971427D8BF3A0032B0D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -385,7 +385,7 @@
 			children = (
 				95EA974427D8E16C0032B0D8 /* Counter.h */,
 				95EA97C227D8E49C0032B0D8 /* Counter.swift */,
-				9589809627DA1F97005DA042 /* WolframAlpha.swift */,
+				9589809827DA2099005DA042 /* WolframAlpha.swift */,
 			);
 			path = Counter;
 			sourceTree = "<group>";
@@ -822,7 +822,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95EA97C327D8E49C0032B0D8 /* Counter.swift in Sources */,
-				9589809727DA1F97005DA042 /* WolframAlpha.swift in Sources */,
+				9589809927DA2099005DA042 /* WolframAlpha.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

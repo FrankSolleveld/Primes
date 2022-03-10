@@ -28,14 +28,19 @@ struct PrimeAlert: Identifiable {
     var id: Int { self.prime }
 }
 
-typealias CounterViewState = (count: Int, favouritePrimes: [Int])
+public typealias CounterViewState = (count: Int, favouritePrimes: [Int])
 
-enum CounterViewAction {
+public enum CounterViewAction {
     case counter(CounterAction)
     case primeModal(PrimeModalAction)
 }
 
 public struct CounterView: View {
+
+    public init(store: Store<CounterViewState, CounterViewAction>) {
+        self.store = store
+    }
+
     @ObservedObject var store: Store<CounterViewState, CounterViewAction>
     @State var isPrimeModalShown = false
     @State var alertNthPrime: PrimeAlert?
@@ -87,13 +92,13 @@ public struct CounterView: View {
     }
 }
 
-public func ordinal(_ n: Int) -> String {
+func ordinal(_ n: Int) -> String {
     let formatter = NumberFormatter()
     formatter.numberStyle = .ordinal
     return formatter.string(for: n) ?? ""
 }
 
-public func nthPrime(_ n: Int, callback: @escaping (Int?) -> Void) -> Void {
+func nthPrime(_ n: Int, callback: @escaping (Int?) -> Void) -> Void {
     wolframAlpha(query: "prime \(n)") { result in
         callback(
             result
