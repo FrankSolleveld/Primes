@@ -12,28 +12,93 @@ import PrimeModal
 public enum CounterAction {
     case decrTapped
     case incrTapped
+    case nthPrimeButtonTapped
+    case nthPrimeResponse(Int?)
+    case alertDismissButtonTapped
 }
 
-public func counterReducer(state: inout Int, action: CounterAction) {
+public typealias CounterState = (
+    alertNthPrime: PrimeAlert?,
+    count: Int,
+    isNthPrimeButtonDisabled: Bool
+)
+public func counterReducer(state: inout CounterState, action: CounterAction) -> [Effect<CounterAction>] {
     switch action {
         case .decrTapped:
-        state -= 1
+        state.count -= 1
+        return []
         case .incrTapped:
-        state += 1
+        state.count += 1
+        return []
+    case .nthPrimeButtonTapped:
+        state.isNthPrimeButtonDisabled = true
+        let count = state.count
+        return [{ callback in
+            nthPrime(count) { prime in
+                DispatchQueue.main.async {
+                    callback(.nthPrimeResponse(prime))
+                }
+            }
+        }]
+    case let .nthPrimeResponse(prime):
+        state.alertNthPrime = prime.map(PrimeAlert.init(prime:))
+        state.isNthPrimeButtonDisabled = false
+        return []
+
+    case .alertDismissButtonTapped:
+        state.alertNthPrime = nil
+        return []
     }
 }
 
-public let counterViewReducer:  = combine(
-    pullback(counterReducer, value: \.count, action: \.counter),
-    pullback(primeModalReducer, value: \.self, action: \.primeModal)
+public let counterViewReducer = combine(
+  pullback(counterReducer, value: \CounterViewState.counter, action: \CounterViewAction.counter),
+  pullback(primeModalReducer, value: \.primeModal, action: \.primeModal)
 )
 
-struct PrimeAlert: Identifiable {
+public struct PrimeAlert: Identifiable {
     let prime: Int
-    var id: Int { self.prime }
+    public var id: Int { self.prime }
 }
 
-public typealias CounterViewState = (count: Int, favouritePrimes: [Int])
+public struct CounterViewState {
+    var alertNthPrime: PrimeAlert?
+    var count: Int
+    var favouritePrimes: [Int]
+    var isNthPrimeButtonDisabled: Bool
+
+    public init(
+        alertNthPrime: PrimeAlert?,
+        count: Int,
+        favouritePrimes: [Int],
+        isNthPrimeButtonDisabled: Bool
+    ) {
+        self.alertNthPrime = alertNthPrime
+        self.count = count
+        self.favouritePrimes = favouritePrimes
+        self.isNthPrimeButtonDisabled = isNthPrimeButtonDisabled
+    }
+
+    var counter: CounterState {
+        get {
+            (self.alertNthPrime, self.count, self.isNthPrimeButtonDisabled)
+        }
+        set {
+            (self.alertNthPrime, self.count, self.isNthPrimeButtonDisabled)
+            = newValue
+        }
+    }
+
+    var primeModal: PrimeModalState {
+        get {
+            (self.count, self.favouritePrimes)
+        }
+        set {
+            (self.count, self.favouritePrimes)
+            = newValue
+        }
+    }
+}
 
 public enum CounterViewAction {
     case counter(CounterAction)
@@ -70,8 +135,7 @@ public struct CounterView: View {
 
     @ObservedObject var store: Store<CounterViewState, CounterViewAction>
     @State var isPrimeModalShown = false
-    @State var alertNthPrime: PrimeAlert?
-    @State var isNthPrimeButtonDisabled = false
+
     public var body: some View {
         VStack {
             HStack {
@@ -90,7 +154,7 @@ public struct CounterView: View {
                 "What is the \(ordinal(store.value.count)) prime?",
                 action: nthPrimeButtonAction
             )
-                .disabled(isNthPrimeButtonDisabled)
+            .disabled(store.value.isNthPrimeButtonDisabled)
         }
         .font(.title)
         .navigationBarTitle("Counter Demo")
@@ -103,19 +167,17 @@ public struct CounterView: View {
                     )
             )
         }
-        .alert(item: $alertNthPrime) { alert in
+        .alert(item: .constant(store.value.alertNthPrime)) { alert in
             Alert(
                 title: Text("The \(ordinal(store.value.count)) prime is \(alert.prime)"),
-                dismissButton: .default(Text("Aight"))
+                dismissButton: .default(Text("Cool"), action: {
+                    store.send(.counter(.alertDismissButtonTapped))
+                })
             )
         }
     }
     func nthPrimeButtonAction() {
-        self.isNthPrimeButtonDisabled = true
-        nthPrime(self.store.value.count) { prime in
-            self.alertNthPrime = prime.map(PrimeAlert.init(prime:))
-            self.isNthPrimeButtonDisabled = false
-        }
+        store.send(.counter(.nthPrimeButtonTapped))
     }
 }
 
