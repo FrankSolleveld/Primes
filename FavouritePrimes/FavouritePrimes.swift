@@ -29,26 +29,34 @@ public func favouritePrimesReducer(state: inout [Int], action: FavouritePrimesAc
 
     case .saveButtonTapped:
         let state = state
-        return [{
-            let data = try! JSONEncoder().encode(state)
-            let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-            let documentsUrl = URL(fileURLWithPath: documentPath)
-            let favouritePrimesUrl = documentsUrl.appendingPathComponent("favourite-primes.json")
-            try! data.write(to: favouritePrimesUrl)
-            return nil
-        }]
+        return [saveEffect(favouritePrimes: state)]
 
     case .loadButtonTapped:
-        return [{
-            let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-            let documentsUrl = URL(fileURLWithPath: documentPath)
-            let favouritePrimesUrl = documentsUrl.appendingPathComponent("favourite-primes.json")
-            guard let data = try? Data(contentsOf: favouritePrimesUrl),
-                  let favouritePrimes = try? JSONDecoder().decode([Int].self, from: data) else { return nil }
-            return .loadedFavouritePrimes(favouritePrimes)
-        }]
+        return [loadEffect]
     }
 }
+
+private func saveEffect(favouritePrimes: [Int]) -> Effect<FavouritePrimesAction> {
+    return {
+        let data = try! JSONEncoder().encode(favouritePrimes)
+        let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let documentsUrl = URL(fileURLWithPath: documentPath)
+        let favouritePrimesUrl = documentsUrl.appendingPathComponent("favourite-primes.json")
+        try! data.write(to: favouritePrimesUrl)
+        return nil
+    }
+}
+
+private let loadEffect: Effect<FavouritePrimesAction> =
+    {
+        let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let documentsUrl = URL(fileURLWithPath: documentPath)
+        let favouritePrimesUrl = documentsUrl.appendingPathComponent("favourite-primes.json")
+        guard let data = try? Data(contentsOf: favouritePrimesUrl),
+              let favouritePrimes = try? JSONDecoder().decode([Int].self, from: data) else { return nil }
+        return .loadedFavouritePrimes(favouritePrimes)
+    }
+
 
 public struct FavouritePrimesView: View {
 
