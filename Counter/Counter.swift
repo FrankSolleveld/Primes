@@ -23,7 +23,7 @@ public func counterReducer(state: inout Int, action: CounterAction) {
     }
 }
 
-public let counterViewReducer: (inout CounterViewState, CounterViewAction) -> Void = combine(
+public let counterViewReducer:  = combine(
     pullback(counterReducer, value: \.count, action: \.counter),
     pullback(primeModalReducer, value: \.self, action: \.primeModal)
 )
