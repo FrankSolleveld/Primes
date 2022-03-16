@@ -22,6 +22,7 @@ public typealias CounterState = (
     count: Int,
     isNthPrimeButtonDisabled: Bool
 )
+
 public func counterReducer(state: inout CounterState, action: CounterAction) -> [Effect<CounterAction>] {
     switch action {
         case .decrTapped:
@@ -32,14 +33,11 @@ public func counterReducer(state: inout CounterState, action: CounterAction) -> 
         return []
     case .nthPrimeButtonTapped:
         state.isNthPrimeButtonDisabled = true
-        let count = state.count
-        return [{ callback in
-            nthPrime(count) { prime in
-                DispatchQueue.main.async {
-                    callback(.nthPrimeResponse(prime))
-                }
-            }
-        }]
+        return [
+            nthPrime(state.count)
+                .map { CounterAction.nthPrimeResponse($0) }
+                .receive(on: .main)
+        ]
     case let .nthPrimeResponse(prime):
         state.alertNthPrime = prime.map(PrimeAlert.init(prime:))
         state.isNthPrimeButtonDisabled = false
@@ -62,10 +60,10 @@ public struct PrimeAlert: Identifiable {
 }
 
 public struct CounterViewState {
-    var alertNthPrime: PrimeAlert?
-    var count: Int
-    var favouritePrimes: [Int]
-    var isNthPrimeButtonDisabled: Bool
+    public var alertNthPrime: PrimeAlert?
+    public var count: Int
+    public var favouritePrimes: [Int]
+    public var isNthPrimeButtonDisabled: Bool
 
     public init(
         alertNthPrime: PrimeAlert?,
@@ -185,21 +183,4 @@ func ordinal(_ n: Int) -> String {
     let formatter = NumberFormatter()
     formatter.numberStyle = .ordinal
     return formatter.string(for: n) ?? ""
-}
-
-func nthPrime(_ n: Int, callback: @escaping (Int?) -> Void) -> Void {
-    wolframAlpha(query: "prime \(n)") { result in
-        callback(
-            result
-                .flatMap {
-                    $0.queryresult
-                        .pods
-                        .first(where: { $0.primary == .some(true) })?
-                        .subpods
-                        .first?
-                        .plaintext
-                }
-                .flatMap(Int.init)
-        )
-    }
 }
