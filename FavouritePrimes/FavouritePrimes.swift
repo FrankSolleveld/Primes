@@ -7,6 +7,7 @@
 
 import SwiftUI
 import ComposableArchitecture
+import Combine
 
 public enum FavouritePrimesAction {
     case deleteFavouritePrimes(IndexSet)
@@ -32,12 +33,16 @@ public func favouritePrimesReducer(state: inout [Int], action: FavouritePrimesAc
         return [saveEffect(favouritePrimes: state)]
 
     case .loadButtonTapped:
-        return [loadEffect]
+        return [
+            loadEffect
+                .compactMap { $0 }
+                .eraseToEffect()
+        ]
     }
 }
 
 private func saveEffect(favouritePrimes: [Int]) -> Effect<FavouritePrimesAction> {
-    return Effect { _ in
+    return .fireAndForget {
         let data = try! JSONEncoder().encode(favouritePrimes)
         let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let documentsUrl = URL(fileURLWithPath: documentPath)
@@ -46,13 +51,13 @@ private func saveEffect(favouritePrimes: [Int]) -> Effect<FavouritePrimesAction>
     }
 }
 
-private let loadEffect = Effect<FavouritePrimesAction> { callback in
+private let loadEffect = Effect<FavouritePrimesAction?>.sync {
         let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let documentsUrl = URL(fileURLWithPath: documentPath)
         let favouritePrimesUrl = documentsUrl.appendingPathComponent("favourite-primes.json")
         guard let data = try? Data(contentsOf: favouritePrimesUrl),
-              let favouritePrimes = try? JSONDecoder().decode([Int].self, from: data) else { return }
-        callback(.loadedFavouritePrimes(favouritePrimes))
+              let favouritePrimes = try? JSONDecoder().decode([Int].self, from: data) else { return nil }
+        return .loadedFavouritePrimes(favouritePrimes)
     }
 
 
@@ -85,5 +90,13 @@ public struct FavouritePrimesView: View {
                     }
                 }
         )
+    }
+}
+
+extension Effect {
+    public static func sync(work: @escaping () -> Output) -> Effect {
+        return Deferred {
+            Just(work())
+        }.eraseToEffect()
     }
 }
