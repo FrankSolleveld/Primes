@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9527385B27E21AF3004EA171 /* Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9527385A27E21AF3004EA171 /* Effects.swift */; };
 		9589809527DA1F8A005DA042 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA972727D8BF5E0032B0D8 /* Helpers.swift */; };
 		9589809927DA2099005DA042 /* WolframAlpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589809827DA2099005DA042 /* WolframAlpha.swift */; };
 		95EA971127D8BF3A0032B0D8 /* PrimesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA971027D8BF3A0032B0D8 /* PrimesApp.swift */; };
@@ -175,6 +176,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9527385A27E21AF3004EA171 /* Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effects.swift; sourceTree = "<group>"; };
 		9589809827DA2099005DA042 /* WolframAlpha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolframAlpha.swift; sourceTree = "<group>"; };
 		95EA970D27D8BF3A0032B0D8 /* Primes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Primes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95EA971027D8BF3A0032B0D8 /* PrimesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimesApp.swift; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 			children = (
 				95EA97A527D8E1A30032B0D8 /* ComposableArchitecture.h */,
 				95EA97BE27D8E1B80032B0D8 /* ComposableArchitecture.swift */,
+				9527385A27E21AF3004EA171 /* Effects.swift */,
 			);
 			path = ComposableArchitecture;
 			sourceTree = "<group>";
@@ -866,6 +869,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9527385B27E21AF3004EA171 /* Effects.swift in Sources */,
 				95EA97BF27D8E1B80032B0D8 /* ComposableArchitecture.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
