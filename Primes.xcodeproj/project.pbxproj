@@ -680,7 +680,6 @@
 					};
 					95EA974827D8E16C0032B0D8 = {
 						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = 95EA970C27D8BF3A0032B0D8;
 					};
 					95EA976227D8E17B0032B0D8 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -688,7 +687,6 @@
 					};
 					95EA976927D8E17B0032B0D8 = {
 						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = 95EA970C27D8BF3A0032B0D8;
 					};
 					95EA978227D8E1840032B0D8 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -696,7 +694,6 @@
 					};
 					95EA978927D8E1840032B0D8 = {
 						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = 95EA970C27D8BF3A0032B0D8;
 					};
 					95EA97A227D8E1A30032B0D8 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -704,7 +701,6 @@
 					};
 					95EA97A927D8E1A30032B0D8 = {
 						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = 95EA970C27D8BF3A0032B0D8;
 					};
 				};
 			};
@@ -1221,7 +1217,6 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Primes.app/Primes";
 			};
 			name = Debug;
 		};
@@ -1239,7 +1234,6 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Primes.app/Primes";
 			};
 			name = Release;
 		};
@@ -1320,7 +1314,6 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Primes.app/Primes";
 			};
 			name = Debug;
 		};
@@ -1338,7 +1331,6 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Primes.app/Primes";
 			};
 			name = Release;
 		};
@@ -1419,7 +1411,6 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Primes.app/Primes";
 			};
 			name = Debug;
 		};
@@ -1437,7 +1428,6 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Primes.app/Primes";
 			};
 			name = Release;
 		};
@@ -1518,7 +1508,6 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Primes.app/Primes";
 			};
 			name = Debug;
 		};
@@ -1536,7 +1525,6 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Primes.app/Primes";
 			};
 			name = Release;
 		};
