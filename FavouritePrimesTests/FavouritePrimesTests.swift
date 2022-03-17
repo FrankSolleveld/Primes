@@ -9,28 +9,28 @@ import XCTest
 @testable import FavouritePrimes
 
 class FavouritePrimesTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testDeleteFavouritePrimesTapped() {
+        var state = [2, 3, 4, 5]
+        let effects = favouritePrimesReducer(state: &state, action: .deleteFavouritePrimes([2]))
+        XCTAssertEqual(state, [2, 3, 5])
+        XCTAssert(effects.isEmpty)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testSaveFavouritePrimesTapped() {
+        var state = [2, 3, 4, 5]
+        let effects = favouritePrimesReducer(state: &state, action: .saveButtonTapped)
+        XCTAssertEqual(state, [2, 3, 4, 5])
+        XCTAssertEqual(effects.count, 1)
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testLoadFavouritePrimesFlow() {
+        var state = [2, 3, 4, 5]
+        var effects = favouritePrimesReducer(state: &state, action: .loadButtonTapped)
+        XCTAssertEqual(state, [2, 3, 4, 5])
+        XCTAssertEqual(effects.count, 1)
+    
+        effects = favouritePrimesReducer(state: &state, action: .loadedFavouritePrimes([2, 3, 1]))
+        XCTAssertEqual(state, [2, 3, 1])
+        XCTAssert(effects.isEmpty)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
